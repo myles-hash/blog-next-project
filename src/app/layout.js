@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
       <nav>
         <Link href="/">HOME</Link> | <Link href="/about">ABOUT</Link> | <Link href="/posts">POSTS</Link> | <Link href="/posts/new">CREATE POST</Link>
       </nav>
-      <header>Myles' Page</header>
+      <header>Myles Page</header>
         {children}
-      <footer>&copy; Myles 2024 How're ya&#8482;</footer>
+      <footer>&copy; Myles 2024 Howre ya&#8482;</footer>
         </body>
     </html>
   );
