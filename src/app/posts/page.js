@@ -6,17 +6,18 @@ export default async function PostsPage() {
     SELECT * FROM posts
     `;
 
+
     return (
         <div>
             <h1>Posts</h1>
-            <ul>
                 {posts.rows.map((post) => {
                     return (
-                        <ul>
-                    <Link href={`/posts/${post.id}`} key={post.id} >{post.title} by ({post.username})</Link>
+                        <>
+                        <ul key ={post.id}>
+                    <Link key ={post.id} href={`/posts/${post.id}`}>{post.title} by ({post.username})</Link>
                         </ul>
+                        </>
 )})}
-            </ul>
         </div>
     )
 }

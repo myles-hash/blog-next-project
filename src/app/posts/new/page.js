@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import SavePostBtn from "@/app/comps/SavePostBtn";
 
 export default function NewPostPage(){
     async function handleSavePost(formData){
@@ -30,7 +31,7 @@ export default function NewPostPage(){
                 <input id='title' name='title' type='text' required/>
                 <label htmlFor='content' >Message:</label>
                 <input id='content' name='content' type='text' required/>
-                <button type='submit'>Save</button>
+                <SavePostBtn />
             </form>
         </div>
     );

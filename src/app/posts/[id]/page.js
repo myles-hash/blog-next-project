@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import SaveCommentBtn from "@/app/comps/SaveCommentBtn";
 
 
 export default async function Post({ params }){
@@ -32,9 +33,6 @@ export default async function Post({ params }){
 
 
 
-
-
-    
     return (
         <div>
         <div>
@@ -56,7 +54,7 @@ export default async function Post({ params }){
                 <input id='username' name='username' type='text' required/>
                 <label htmlFor='comment' >Comment:</label>
                 <input id='comment' name='comment' type='text' required/>
-                <button type='submit'>Save</button>
+                <SaveCommentBtn />
             </form>
             </div>
 
