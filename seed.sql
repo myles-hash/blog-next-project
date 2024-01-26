@@ -18,5 +18,8 @@ CREATE TABLE comments (
 INSERT INTO comments (username, comment, post_id) VALUES
 ('Bob','This is a comment on the first post', 1)
 
+ALTER TABLE posts
+ADD category VARCHAR(225);
+
 
 

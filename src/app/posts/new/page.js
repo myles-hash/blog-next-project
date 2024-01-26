@@ -9,15 +9,16 @@ export default function NewPostPage(){
         const username = formData.get("username");
         const title = formData.get("title");
         const content = formData.get("content");
+        const category = formData.get("category");
 
         await sql `
-        INSERT INTO posts (username,title,content) VALUES
-        (${username},${title},${content})
+        INSERT INTO posts (username,title,content,category) VALUES
+        (${username},${title},${content},${category})
         `;
 
         revalidatePath("/posts");
 
-        redirect("/posts");
+        redirect("/posts");s
     }
 
 
@@ -31,6 +32,12 @@ export default function NewPostPage(){
                 <input id='title' name='title' type='text' required/>
                 <label htmlFor='content' >Message:</label>
                 <input id='content' name='content' type='text' required/>
+                <label htmlFor='category' name='category' required>Choose a category:</label>
+                <select name='category' id= 'category' required>
+                    <option value="">...</option>
+                    <option value="fun">Fun!</option>
+                    <option value="serious">Serious</option>
+                </select>
                 <SavePostBtn />
             </form>
         </div>

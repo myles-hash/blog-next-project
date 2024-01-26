@@ -42,6 +42,7 @@ export default async function Post({ params }){
                         <h1>{post.title}</h1>
                         <h4>By {post.username}</h4>
                         <h2>{post.content}</h2>
+                        <h5>Category: {post.category}</h5>
                         </div>
                     )
 })}
