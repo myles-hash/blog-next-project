@@ -2,9 +2,14 @@ import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import SaveCommentBtn from "@/app/comps/SaveCommentBtn";
+import Link from "next/link";
+import DeleteBtn from "@/app/comps/DeleteBtn";
+
+
 
 
 export default async function Post({ params }){
+    console.log(params)
     const posts = await sql`
     SELECT * FROM posts WHERE id = ${params.id}
     `;
@@ -14,7 +19,6 @@ export default async function Post({ params }){
     `;
 
     
-
     async function handleSaveComment(formData){
         "use server";
         const username = formData.get("username");
@@ -30,6 +34,22 @@ export default async function Post({ params }){
 
         redirect(`/posts/${params.id}`);
     }
+
+    async function handleDeletePost(){
+        "use server";
+
+        await sql `
+        DELETE FROM posts 
+        WHERE id = ${params.id}
+        `;
+
+        revalidatePath(`/posts`);
+
+        redirect(`/posts`);
+        
+    }
+
+
 
 
 
@@ -49,6 +69,11 @@ export default async function Post({ params }){
             </ul>
             </div>
             <div>
+
+                    <Link href={`/posts/${params.id}/edit`}>EDIT POST</Link> | <Link href="/posts">BACK TO POSTS</Link> <form action={handleDeletePost}>
+    <DeleteBtn />
+    </form>
+
             <h2>Add a Comment</h2>
             <form action={handleSaveComment}>
                 <label htmlFor='username' >Username:</label>
@@ -62,14 +87,20 @@ export default async function Post({ params }){
 
             <div>
             <h2>Comments</h2>
-            <ul>    
+            <ul>   
                     {comments.rows.map((comment) => {
-                        return (<div key={comment.id}>
-                            <h2>By {comment.username}</h2>
-                            <h4>{comment.comment}</h4>
-                            </div>
+                        return (
+                            <>
+                            <ul key ={comment.id}>
+                        <Link key ={comment.id} href={`/posts/${params.id}/${comment.id}`}>{comment.comment} by ({comment.username})</Link>
+                            </ul>
+                            </>
                         )
-    })}
+                           
+                        
+    })
+    } 
+
                 </ul>
             </div>
             </div>
