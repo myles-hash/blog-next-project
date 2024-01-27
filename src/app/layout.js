@@ -1,23 +1,23 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Blog (or some such thing)",
-  description: "This is a blog (or some such thing) with a comments form",
+  title: "Post Page ",
+  description: "This is a post page made by me, Myles",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <nav>
-        <Link href="/">HOME</Link> | <Link href="/about">ABOUT</Link> | <Link href="/posts">POSTS</Link> | <Link href="/posts/new">CREATE POST</Link>
+      <body className="body">
+      <header>Myles Post Page</header>
+      <nav className="nav">
+        <Link className="link" href="/">HOME</Link> | <Link className="link" href="/about">ABOUT</Link> | <Link className="link" href="/posts">POSTS</Link> | <Link className="link" href="/posts/new">CREATE POST</Link>
       </nav>
-      <header>Myles Epic Page</header>
+      <div>
         {children}
+        </div>
       <footer>&copy; Myles 2024 Howre ya&#8482;</footer>
         </body>
     </html>
