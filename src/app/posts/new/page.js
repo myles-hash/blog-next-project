@@ -12,8 +12,8 @@ export default function NewPostPage(){
         const category = formData.get("category");
 
         await sql `
-        INSERT INTO posts (username,title,content,category) VALUES
-        (${username},${title},${content},${category})
+        INSERT INTO posts (username,title,content,category,date_posts, time_posts) VALUES
+        (${username},${title},${content},${category},CURRENT_DATE, CURRENT_TIME)
         `;
 
         revalidatePath("/posts");

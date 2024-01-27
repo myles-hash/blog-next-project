@@ -14,7 +14,7 @@ export default async function EditPostPage({ params }){
 
         await sql `
         UPDATE posts
-        SET username = ${username}, title = ${title}, content = ${content}, category = ${category}
+        SET username = ${username}, title = ${title}, content = ${content}, category = ${category}, date_posts = CURRENT_DATE, time_posts = CURRENT_TIME
         WHERE id = ${params.id}
         `;
 
@@ -26,6 +26,9 @@ export default async function EditPostPage({ params }){
 
     let ogPosts = await sql `
     SELECT * FROM posts WHERE id = ${params.id}`;
+
+    let date = `${ogPosts.rows[0].date_posts}`.substring(0,11);
+    let time = `${ogPosts.rows[0].time_posts}`.substring(0,9);
     return(
         <div>
             <h1>Edit Post: {ogPosts.rows[0].title}</h1>
@@ -49,6 +52,7 @@ export default async function EditPostPage({ params }){
             <p>Title: {ogPosts.rows[0].title}</p>
             <p>Message: {ogPosts.rows[0].content}</p>
             <p>Category: {ogPosts.rows[0].category}</p>
+            <p>Date: {date} Time: {time}</p>
             <Link href={`/posts/${params.id}`}>BACK TO POST</Link>
         </div>
     );

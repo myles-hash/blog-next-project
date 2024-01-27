@@ -21,5 +21,17 @@ INSERT INTO comments (username, comment, post_id) VALUES
 ALTER TABLE posts
 ADD category VARCHAR(225);
 
+ALTER TABLE posts
+ADD time_posts TIME;
+
+ALTER TABLE posts
+ADD date_posts DATE;
+
+ALTER TABLE comments
+ADD time_comments TIME;
+
+ALTER TABLE comments
+ADD date_comments DATE;
+
 
 

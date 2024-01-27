@@ -2,6 +2,7 @@ import { sql } from "@vercel/postgres";
 import Link from "next/link";
 
 
+
 export default async function PostsPage({ searchParams }) {
     
 
@@ -23,7 +24,6 @@ export default async function PostsPage({ searchParams }) {
     `;
     }
 
-
     
 
     return (
@@ -33,10 +33,13 @@ export default async function PostsPage({ searchParams }) {
             Serious Posts
           </Link>
                 {posts.rows.map((post) => {
+                  let date = `${post.date_posts}`.substring(0,11)
+                  let time = `${post.time_posts}`.substring(0,9)
                     return (
                         <>
-                        <ul key ={post.id}>
-                    <Link key ={post.id} href={`/posts/${post.id}`}>{post.title} by ({post.username}) <br/>(category:{post.category})</Link>
+                        <ul key ={post.id}> 
+                    <Link key ={post.id} href={`/posts/${post.id}`}>{post.title} by ({post.username}) <br/>(category:{post.category}) </Link>
+                    <p>Date:{date} Time:{time}</p>
                         </ul>
                         </>
 )})}
