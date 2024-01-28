@@ -41,13 +41,15 @@ export default async function PostsPage({ searchParams }) {
           </div>
                 {posts.rows.map((post) => {
                   let date = `${post.date_posts}`.substring(0,11)
-                  let time = `${post.time_posts}`.substring(0,9)
+                  let time = `${post.time_posts}`.substring(0,8)
                     return (
-                      <div className="post">
-                        <ul key ={post.id}> 
-                    <Link key ={post.id} href={`/posts/${post.id}`}>{post.title} by ({post.username}) <br/>(category:{post.category}) </Link>
+                      <div className="post" key ={post.id}>
+                        
+                    
+                    <Link key ={post.id} href={`/posts/${post.id}`} className="postLink">{post.title} by ({post.username}) <br/>(category:{post.category}) </Link>
                     <p>Date:{date} Time:{time}</p>
-                        </ul>
+                      
+                    
                         </div>
 )})}
         </div>

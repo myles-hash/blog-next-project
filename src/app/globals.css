@@ -67,5 +67,154 @@ footer {
     text-align: center;
     border: 5px solid black;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     border-radius: 15px;
 }
+.postLink {
+font-size:1rem;
+color:#011f4b;
+}
+.createNewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+}
+.message {
+    padding-bottom: 2rem;
+}
+.fullPost {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+.fullPost h1 {
+    margin-bottom: 10px;
+  }
+  
+  .fullPost h4 {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .fullPost h2 {
+    margin-bottom: 15px;
+  }
+  
+  .fullPost h5 {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .fullPost h6 {
+    color: #555;
+    font-size: .6rem;
+  }
+
+  .comments-section {
+    margin-top: 20px;
+  }
+  
+  .comments-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .add-comment-form {
+    margin-bottom: 20px;
+  }
+  
+  .add-comment-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .add-comment-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .add-comment-form button, .delBtn {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+
+  .comment {
+    margin-bottom: 20px;
+  }
+  
+  .comment a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .comment p {
+    color: #555;
+    margin-top: 5px;
+  }
+
+  .comments-section {
+    text-align: center;
+  }
+  .delBtn {
+    margin-top: 1rem;
+  }
+  .container-edit {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 2rem;
+  }
+  .edit-post-form {
+    margin-bottom: 20px;
+  }
+  
+  .edit-post-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .edit-post-form input,
+  .edit-post-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .edit-post-formBtn{
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+  
+  .original-post-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+  }
+  
+  .original-post-details p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .link-back {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+  }

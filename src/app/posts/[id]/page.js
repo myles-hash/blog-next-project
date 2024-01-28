@@ -73,9 +73,9 @@ export default async function Post({ params }){
         <ul>
                 {posts.rows.map((post) => {
                     let date = `${post.date_posts}`.substring(0,11)
-                    let time = `${post.time_posts}`.substring(0,9)
-                    return (<div key={post.id}>
-                        <h1>{post.title}</h1>
+                    let time = `${post.time_posts}`.substring(0,8)
+                    return (<div key={post.id} className="fullPost">
+                        <h1 >{post.title}</h1>
                         <h4>By {post.username}</h4>
                         <h2>{post.content}</h2>
                         <h5>Category: {post.category}</h5>
@@ -86,13 +86,15 @@ export default async function Post({ params }){
             </ul>
             </div>
             <div>
+            <div className="center">
 
-                    <Link href={`/posts/${params.id}/edit`}>EDIT POST</Link> | <Link href="/posts">BACK TO POSTS</Link> <form action={handleDeletePost}>
-    <DeleteBtn />
+                    <Link className="link" href={`/posts/${params.id}/edit`}>EDIT POST</Link> / <Link className="link" href="/posts">BACK TO POSTS</Link> <form action={handleDeletePost}>
+    <DeleteBtn/>
     </form>
+    </div>
 
-            <h2>Add a Comment</h2>
-            <form action={handleSaveComment}>
+            <h2 >Add a Comment</h2>
+            <form action={handleSaveComment} className="add-comment-form">
                 <label htmlFor='username' >Username:</label>
                 <input id='username' name='username' type='text' required/>
                 <label htmlFor='comment' >Comment:</label>
@@ -102,21 +104,21 @@ export default async function Post({ params }){
             </div>
 
 
-            <div>
+            <div className="comments-section">
             <h2>Comments</h2>
             <h4>{commentInstruct}</h4>
             
-            <ul>   
+            <ul className="comments-section">   
                     {comments.rows.map((comment) => {
                         let date = `${comment.date_comments}`.substring(0,11)
                         let time = `${comment.time_comments}`.substring(0,9)
                         return (
-                            <>
+                            <div className="comment">
                             <ul key ={comment.id}>
                         <Link key ={comment.id} href={`/posts/${params.id}/${comment.id}`}>{comment.comment} by ({comment.username})</Link>
                         <p>Date:{date} Time:{time}</p>
                             </ul>
-                            </>
+                            </div>
                         )
                            
                         
