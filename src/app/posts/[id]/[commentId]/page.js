@@ -43,9 +43,9 @@ export default async function EditCommentPage({ params }){
     AND id = ${params.commentId}`;
 
     let date = `${ogComments.rows[0].date_comments}`.substring(0,11)
-    let time = `${ogComments.rows[0].time_comments}`.substring(0,9)
+    let time = `${ogComments.rows[0].time_comments}`.substring(0,8)
     return(
-        <div>
+        <div className="postPageCont">
             <h2>Comment by {ogComments.rows[0].username}:</h2>
             <h3>Comment: {ogComments.rows[0].comment}</h3>
             <h4>Date: {date} Time: {time}</h4>

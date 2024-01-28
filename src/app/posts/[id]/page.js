@@ -108,16 +108,16 @@ export default async function Post({ params }){
             <h2>Comments</h2>
             <h4>{commentInstruct}</h4>
             
-            <ul className="comments-section">   
+            <div className="comments-section">   
                     {comments.rows.map((comment) => {
                         let date = `${comment.date_comments}`.substring(0,11)
                         let time = `${comment.time_comments}`.substring(0,9)
                         return (
-                            <div className="comment">
-                            <ul key ={comment.id}>
+                            <div className="comment" key ={comment.id}>
+                            
                         <Link key ={comment.id} href={`/posts/${params.id}/${comment.id}`}>{comment.comment} by ({comment.username})</Link>
                         <p>Date:{date} Time:{time}</p>
-                            </ul>
+                            
                             </div>
                         )
                            
@@ -125,7 +125,7 @@ export default async function Post({ params }){
     })
     } 
 
-                </ul>
+                </div>
             </div>
             </div>
     )
